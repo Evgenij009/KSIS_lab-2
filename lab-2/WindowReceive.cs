@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace lab_2
 {
-    public partial class Form1 : Form
+    public partial class WindowReceive : Form
     {
-        public Form1()
+        public WindowReceive()
         {
             InitializeComponent();
+        }
+
+        private void WindowReceive_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void WindowReceive_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

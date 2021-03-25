@@ -1,7 +1,7 @@
 ﻿
 namespace lab_2
 {
-    partial class Form1
+    partial class WindowChoice
     {
         /// <summary>
         /// Required designer variable.
@@ -42,6 +42,7 @@ namespace lab_2
             this.bSend.TabIndex = 0;
             this.bSend.Text = "Send";
             this.bSend.UseVisualStyleBackColor = true;
+            this.bSend.Click += new System.EventHandler(this.bSend_Click);
             // 
             // bReceive
             // 
@@ -52,8 +53,9 @@ namespace lab_2
             this.bReceive.TabIndex = 1;
             this.bReceive.Text = "Receive";
             this.bReceive.UseVisualStyleBackColor = true;
+            this.bReceive.Click += new System.EventHandler(this.bReceive_Click);
             // 
-            // Form1
+            // WindowChoice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -62,7 +64,8 @@ namespace lab_2
             this.Controls.Add(this.bReceive);
             this.Controls.Add(this.bSend);
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "WindowChoice";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TransferFile";
             this.ResumeLayout(false);
 
