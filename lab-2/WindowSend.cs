@@ -26,5 +26,10 @@ namespace lab_2
         {
             Application.Exit();
         }
+
+        private void bJoin_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
