@@ -31,5 +31,10 @@ namespace lab_2
         {
 
         }
+
+        private void openFileDialog_FileOk(object sender, CancelEventArgs e)
+        {
+
+        }
     }
 }
