@@ -5,7 +5,7 @@ using System.Net.Sockets;
 
 namespace ChatServer
 {
-    static class HandlerNetwork
+    static class ValidateNetwork
     {
 
         public static IPAddress GetIPAddress()
@@ -51,7 +51,7 @@ namespace ChatServer
         private static bool IsPortAvailable(int port)
         {
             var ipProperties = IPGlobalProperties.GetIPGlobalProperties();
-            var endPoints = ipProperties.GetActiveTcpListeners();
+            var endPoints = ipProperties.GetActiveUdpListeners();
 
             foreach (var endPoint in endPoints)
             {

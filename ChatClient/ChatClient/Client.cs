@@ -65,7 +65,7 @@ namespace ChatClient
 
                 // Get packet as byte array
                 byte[] byteData = sendData.GetDataStream();
-
+                
                 // Send packet to the server
                 clientSocket.BeginSendTo(byteData, 0, byteData.Length, SocketFlags.None, epServer, new AsyncCallback(this.SendData), null);
 
@@ -133,6 +133,7 @@ namespace ChatClient
 
                 // Get packet as byte array
                 byte[] data = sendData.GetDataStream();
+                string line = data.ToString();
 
                 // Send data to server
                 clientSocket.BeginSendTo(data, 0, data.Length, SocketFlags.None, epServer, new AsyncCallback(this.SendData), null);
@@ -208,5 +209,13 @@ namespace ChatClient
         }
 
         #endregion
+
+        private void Client_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.Enter && e.KeyCode == Keys.ControlKey)
+            {
+                btnSend_Click(sender, e);
+            }
+        }
     }
 }

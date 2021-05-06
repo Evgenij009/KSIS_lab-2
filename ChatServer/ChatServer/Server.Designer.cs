@@ -41,12 +41,13 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rtxtStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.rtxtStatus.Location = new System.Drawing.Point(13, 41);
-            this.rtxtStatus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rtxtStatus.Margin = new System.Windows.Forms.Padding(4);
             this.rtxtStatus.Name = "rtxtStatus";
             this.rtxtStatus.ReadOnly = true;
             this.rtxtStatus.Size = new System.Drawing.Size(555, 306);
             this.rtxtStatus.TabIndex = 0;
             this.rtxtStatus.Text = "";
+            this.rtxtStatus.TextChanged += new System.EventHandler(this.rtxtStatus_TextChanged);
             // 
             // label1
             // 
@@ -77,7 +78,7 @@
             this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnExit.Location = new System.Drawing.Point(180, 355);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(4);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(219, 33);
             this.btnExit.TabIndex = 3;
@@ -94,7 +95,7 @@
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.rtxtStatus);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Server";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Server";

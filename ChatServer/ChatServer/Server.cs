@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 using System.Net.Sockets;
@@ -60,19 +55,15 @@ namespace ChatServer
                 // Initialise the ArrayList of connected clients
                 this.clientList = new ArrayList();
 
-                // Initialise the delegate which updates the status
                 this.updateStatusDelegate = new UpdateStatusDelegate(this.UpdateStatus);
-
-                // Initialise the socket
+                
                 serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
                 
-                 Address = HandlerNetwork.GetIPAddress();
-                 Port = HandlerNetwork.GetOpenPort(10000);
+                 Address = ValidateNetwork.GetIPAddress();
+                 Port = ValidateNetwork.GetOpenPort(10000);
 
-                // Initialise the IPEndPoint for the server and listen on port 30000
                 IPEndPoint server = new IPEndPoint(Address, Port);
 
-                // Associate the socket with this IP address and port
                 serverSocket.Bind(server);
 
                 // Initialise the IPEndPoint for the clients
@@ -90,6 +81,7 @@ namespace ChatServer
             catch (Exception ex)
             {
                 lblStatus.Text = "Error";
+                lblStatus.ForeColor = Color.Red;
                 MessageBox.Show("Load Error: " + ex.Message, "UDP Server", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -203,12 +195,18 @@ namespace ChatServer
 
         private void UpdateStatus(string status)
         {
+
             rtxtStatus.Text += status + Environment.NewLine;
         }
 
         #endregion
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rtxtStatus_TextChanged(object sender, EventArgs e)
         {
 
         }

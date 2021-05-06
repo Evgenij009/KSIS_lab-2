@@ -35,37 +35,39 @@
             this.txtMessage = new System.Windows.Forms.TextBox();
             this.btnSend = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbPort = new System.Windows.Forms.Label();
+            this.txtServerPort = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnExit = new System.Windows.Forms.Button();
-            this.lbPort = new System.Windows.Forms.Label();
-            this.txtServerPort = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtName
             // 
+            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.txtName.Location = new System.Drawing.Point(100, 33);
-            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(199, 22);
+            this.txtName.Size = new System.Drawing.Size(199, 27);
             this.txtName.TabIndex = 1;
             // 
             // txtServerIP
             // 
+            this.txtServerIP.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.txtServerIP.Location = new System.Drawing.Point(100, 65);
-            this.txtServerIP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtServerIP.Margin = new System.Windows.Forms.Padding(4);
             this.txtServerIP.Name = "txtServerIP";
-            this.txtServerIP.Size = new System.Drawing.Size(199, 22);
+            this.txtServerIP.Size = new System.Drawing.Size(199, 27);
             this.txtServerIP.TabIndex = 3;
             // 
             // btnConnect
             // 
             this.btnConnect.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnConnect.Location = new System.Drawing.Point(308, 33);
-            this.btnConnect.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnConnect.Margin = new System.Windows.Forms.Padding(4);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(175, 83);
             this.btnConnect.TabIndex = 4;
@@ -77,7 +79,7 @@
             // 
             this.rtxtConversation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.rtxtConversation.Location = new System.Drawing.Point(16, 155);
-            this.rtxtConversation.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rtxtConversation.Margin = new System.Windows.Forms.Padding(4);
             this.rtxtConversation.Name = "rtxtConversation";
             this.rtxtConversation.ReadOnly = true;
             this.rtxtConversation.Size = new System.Drawing.Size(489, 308);
@@ -88,17 +90,18 @@
             // 
             this.txtMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.txtMessage.Location = new System.Drawing.Point(11, 27);
-            this.txtMessage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMessage.Margin = new System.Windows.Forms.Padding(4);
             this.txtMessage.Multiline = true;
             this.txtMessage.Name = "txtMessage";
             this.txtMessage.Size = new System.Drawing.Size(348, 69);
             this.txtMessage.TabIndex = 0;
+            this.txtMessage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Client_KeyDown);
             // 
             // btnSend
             // 
             this.btnSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnSend.Location = new System.Drawing.Point(368, 27);
-            this.btnSend.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSend.Margin = new System.Windows.Forms.Padding(4);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(115, 70);
             this.btnSend.TabIndex = 1;
@@ -116,13 +119,32 @@
             this.groupBox1.Controls.Add(this.txtServerIP);
             this.groupBox1.Controls.Add(this.btnConnect);
             this.groupBox1.Location = new System.Drawing.Point(16, 15);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(491, 132);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Connection Options";
+            // 
+            // lbPort
+            // 
+            this.lbPort.AutoSize = true;
+            this.lbPort.Location = new System.Drawing.Point(8, 99);
+            this.lbPort.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbPort.Name = "lbPort";
+            this.lbPort.Size = new System.Drawing.Size(84, 17);
+            this.lbPort.TabIndex = 5;
+            this.lbPort.Text = "Server Port:";
+            // 
+            // txtServerPort
+            // 
+            this.txtServerPort.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txtServerPort.Location = new System.Drawing.Point(100, 95);
+            this.txtServerPort.Margin = new System.Windows.Forms.Padding(4);
+            this.txtServerPort.Name = "txtServerPort";
+            this.txtServerPort.Size = new System.Drawing.Size(199, 27);
+            this.txtServerPort.TabIndex = 6;
             // 
             // label2
             // 
@@ -149,9 +171,9 @@
             this.groupBox2.Controls.Add(this.txtMessage);
             this.groupBox2.Controls.Add(this.btnSend);
             this.groupBox2.Location = new System.Drawing.Point(16, 471);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(491, 111);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
@@ -160,31 +182,13 @@
             // btnExit
             // 
             this.btnExit.Location = new System.Drawing.Point(384, 590);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(4);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(115, 28);
             this.btnExit.TabIndex = 3;
             this.btnExit.Text = "E&xit";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // lbPort
-            // 
-            this.lbPort.AutoSize = true;
-            this.lbPort.Location = new System.Drawing.Point(8, 99);
-            this.lbPort.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbPort.Name = "lbPort";
-            this.lbPort.Size = new System.Drawing.Size(84, 17);
-            this.lbPort.TabIndex = 5;
-            this.lbPort.Text = "Server Port:";
-            // 
-            // txtServerPort
-            // 
-            this.txtServerPort.Location = new System.Drawing.Point(100, 95);
-            this.txtServerPort.Margin = new System.Windows.Forms.Padding(4);
-            this.txtServerPort.Name = "txtServerPort";
-            this.txtServerPort.Size = new System.Drawing.Size(199, 22);
-            this.txtServerPort.TabIndex = 6;
             // 
             // Client
             // 
@@ -196,7 +200,8 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.rtxtConversation);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.KeyPreview = true;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "Client";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
