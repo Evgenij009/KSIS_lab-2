@@ -28,7 +28,8 @@ namespace ChatServer
 
         // Listing of clients
         private ArrayList clientList;
-
+        public IPAddress Address { get; private set; }
+        public int Port { get; private set; }
         // Server socket
         private Socket serverSocket;
 
@@ -64,9 +65,12 @@ namespace ChatServer
 
                 // Initialise the socket
                 serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+                
+                 Address = HandlerNetwork.GetIPAddress();
+                 Port = HandlerNetwork.GetOpenPort(10000);
 
                 // Initialise the IPEndPoint for the server and listen on port 30000
-                IPEndPoint server = new IPEndPoint(IPAddress.Any, 30000);
+                IPEndPoint server = new IPEndPoint(Address, Port);
 
                 // Associate the socket with this IP address and port
                 serverSocket.Bind(server);
@@ -80,7 +84,8 @@ namespace ChatServer
                 // Start listening for incoming data
                 serverSocket.BeginReceiveFrom(this.dataStream, 0, this.dataStream.Length, SocketFlags.None, ref epSender, new AsyncCallback(ReceiveData), epSender);
 
-                lblStatus.Text = "Listening";
+                lblStatus.Text = "Listening IP: " + Address + " Port: " + Port;
+                lblStatus.ForeColor = Color.Green;
             }
             catch (Exception ex)
             {
@@ -203,7 +208,7 @@ namespace ChatServer
 
         #endregion
 
-        private void rtxtStatus_TextChanged(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }

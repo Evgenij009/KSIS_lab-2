@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HandlerNetwork.cs" />
     <Compile Include="Packet.cs" />
     <Compile Include="Server.cs">
       <SubType>Form</SubType>
