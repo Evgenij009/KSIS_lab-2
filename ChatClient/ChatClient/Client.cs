@@ -123,8 +123,10 @@ namespace ChatClient
                 // Initialise server IP
                 IPAddress serverIP = IPAddress.Parse(txtServerIP.Text.Trim());
 
-                // Initialise the IPEndPoint for the server and use port 30000
-                IPEndPoint server = new IPEndPoint(serverIP, 30000);
+                int port = Int32.Parse(txtServerPort.Text);
+
+                // Initialise the IPEndPoint for the server and use port
+                IPEndPoint server = new IPEndPoint(serverIP, port);
 
                 // Initialise the EndPoint for the server
                 epServer = (EndPoint)server;
