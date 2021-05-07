@@ -148,6 +148,7 @@ namespace ChatServer
                         this.clientList.Add(client);
 
                         sendData.ChatMessage = string.Format("-- {0} is online --", receivedData.ChatName);
+                        Console.Write(sendData.ChatMessage);
                         break;
 
                     case DataIdentifier.LogOut:

@@ -51,6 +51,8 @@ namespace ChatClient
         {
             // Initialise delegate
             this.displayMessageDelegate = new DisplayMessageDelegate(this.DisplayMessage);
+            btnSend.Enabled = false;
+            txtMessage.Enabled = false;
         }
 
         private void btnSend_Click(object sender, EventArgs e)
@@ -117,10 +119,8 @@ namespace ChatClient
                 sendData.ChatMessage = null;
                 sendData.ChatDataIdentifier = DataIdentifier.LogIn;
 
-                // Initialise socket
                 this.clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
 
-                // Initialise server IP
                 IPAddress serverIP = IPAddress.Parse(txtServerIP.Text.Trim());
 
                 int port = Int32.Parse(txtServerPort.Text);
@@ -133,21 +133,25 @@ namespace ChatClient
 
                 // Get packet as byte array
                 byte[] data = sendData.GetDataStream();
-                string line = data.ToString();
 
                 // Send data to server
                 clientSocket.BeginSendTo(data, 0, data.Length, SocketFlags.None, epServer, new AsyncCallback(this.SendData), null);
 
-                // Initialise data stream
                 this.dataStream = new byte[1024];
 
                 // Begin listening for broadcasts
                 clientSocket.BeginReceiveFrom(this.dataStream, 0, this.dataStream.Length, SocketFlags.None, ref epServer, new AsyncCallback(this.ReceiveData), null);
+
+                btnSend.Enabled = true;
+                txtMessage.Enabled = true;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Connection Error: " + ex.Message, "UDP Client", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                btnSend.Enabled = false;
+                txtMessage.Enabled = false;
             }
+
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -212,10 +216,15 @@ namespace ChatClient
 
         private void Client_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Control && e.KeyCode == Keys.Enter && e.KeyCode == Keys.ControlKey)
+            if (e.KeyCode == Keys.Enter)
             {
-                btnSend_Click(sender, e);
+                btnSend.PerformClick();
             }
+        }
+
+        private void txtMessage_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
